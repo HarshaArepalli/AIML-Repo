@@ -1,0 +1,332 @@
+SQL> select * from employees;
+
+        ID
+----------
+FIRSTNAME
+--------------------------------------------------------------------------------
+LASTNAME                 SALARY
+-------------------- ----------
+         1
+prince
+h                        180000
+
+         2
+rohith
+v                        150000
+
+        ID
+----------
+FIRSTNAME
+--------------------------------------------------------------------------------
+LASTNAME                 SALARY
+-------------------- ----------
+
+         3
+harsha
+y                        130000
+
+         4
+jashwanth
+
+        ID
+----------
+FIRSTNAME
+--------------------------------------------------------------------------------
+LASTNAME                 SALARY
+-------------------- ----------
+k                        120000
+
+
+SQL> CREATE OR REPLACE PROCEDURE get_total_salary (
+  2      p_emp_name IN VARCHAR2,
+  3      p_total_salary OUT NUMBER
+  4  )
+  5  AS
+  6  BEGIN
+  7      SELECT SUM(salary)
+  8      INTO p_total_salary
+  9      FROM employees
+ 10      WHERE firstname = firstname;
+ 11  END;
+ 12  /
+
+Procedure created.
+
+SQL> VARIABLE total_salary NUMBER
+SQL> EXEC get_total_salary('', :total_salary)
+
+PL/SQL procedure successfully completed.
+
+SQL> PRINT total_salary
+
+TOTAL_SALARY
+------------
+      580000
+
+SQL>SQL> CREATE OR REPLACE PROCEDURE get_full_name (
+  2      p_id IN NUMBER,
+  3      p_full_name OUT VARCHAR2
+  4  )
+  5  AS
+  6  BEGIN
+  7      SELECT firstName || ' ' || lastName
+  8      INTO p_full_name
+  9      FROM employees
+ 10      WHERE id = p_id;
+ 11  END;
+ 12  /
+
+Procedure created.
+
+SQL>
+SQL> VARIABLE full_name VARCHAR2(100)
+SQL>
+SQL>
+SQL> EXEC get_full_name(1, :full_name)
+
+PL/SQL procedure successfully completed.
+
+SQL>
+SQL>
+SQL> PRINT full_name
+
+FULL_NAME
+--------------------------------------------------------------------------------
+prince h
+
+SQL> VARIABLE full_name VARCHAR2(100)
+SQL> EXEC get_full_name(1, :full_name)
+
+PL/SQL procedure successfully completed.
+
+SQL> VARIABLE full_name VARCHAR2(100)
+SQL> EXEC get_full_name(3, :full_name)
+
+PL/SQL procedure successfully completed.
+
+SQL> PRINT full_name
+
+FULL_NAME
+--------------------------------------------------------------------------------
+harsha y
+
+
+
+
+
+FUNCTIONS
+
+
+SQL> CREATE OR REPLACE FUNCTION get_salary_sum (
+  2      p_id IN NUMBER
+  3  ) RETURN NUMBER
+  4  AS
+  5      v_total_salary NUMBER;
+  6  BEGIN
+  7      SELECT SUM(salary)
+  8      INTO v_total_salary
+  9      FROM employees
+ 10      WHERE id = p_id;
+ 11
+ 12      RETURN NVL(v_total_salary, 0);
+ 13  END;
+ 14  /
+
+Function created.
+
+SQL> SELECT get_salary_sum(7) as total_salary from dual;
+
+TOTAL_SALARY
+------------
+           0
+
+SQL> SELECT get_salary_sum(10) as total_salary from dual;
+
+TOTAL_SALARY
+------------
+           0
+
+SQL> ALTER TABLE employees
+  2  ADD (departid NUMBER);
+
+Table altered.
+
+SQL> select * from employees;
+
+        ID
+----------
+FIRSTNAME
+--------------------------------------------------------------------------------
+LASTNAME                 SALARY   DEPARTID
+-------------------- ---------- ----------
+         1
+prince
+h                        180000
+
+         2
+rohith
+v                        150000
+
+        ID
+----------
+FIRSTNAME
+--------------------------------------------------------------------------------
+LASTNAME                 SALARY   DEPARTID
+-------------------- ---------- ----------
+
+         3
+harsha
+y                        130000
+
+         4
+jashwanth
+
+        ID
+----------
+FIRSTNAME
+--------------------------------------------------------------------------------
+LASTNAME                 SALARY   DEPARTID
+-------------------- ---------- ----------
+k                        120000
+
+
+SQL> ALTER TABLE employees ADD (departid NUMBER);
+ALTER TABLE employees ADD (departid NUMBER)
+                           *
+ERROR at line 1:
+ORA-01430: column being added already exists in table
+
+
+SQL> ALTER TABLE employees ADD (departid NUMBER);
+ALTER TABLE employees ADD (departid NUMBER)
+                           *
+ERROR at line 1:
+ORA-01430: column being added already exists in table
+
+
+SQL> -- Assign department 10 to employee ID 1
+SQL> UPDATE employees
+  2  SET departid = 10
+  3  WHERE id = 1;
+
+1 row updated.
+
+SQL>
+SQL> -- Assign department 20 to employee ID 2
+SQL> UPDATE employees
+  2  SET departid = 20
+  3  WHERE id = 2;
+
+1 row updated.
+
+SQL> update employees
+  2  set departid = 30
+  3  where id = 3;
+
+1 row updated.
+
+SQL> update employees
+  2  SET departid = 40
+  3  where id = 4;
+
+1 row updated.
+
+SQL> CREATE OR REPLACE FUNCTION get_salary_sum (
+  2      p_departid IN NUMBER
+  3  ) RETURN NUMBER
+  4  AS
+  5      v_total_salary NUMBER;
+  6  BEGIN
+  7      SELECT SUM(salary)
+  8      INTO v_total_salary
+  9      FROM employees
+ 10      WHERE departid = p_departid;
+ 11
+ 12      RETURN NVL(v_total_salary, 0);  -- In case no rows found, return 0
+ 13  END;
+ 14  /
+
+Function created.
+
+SQL> SELECT get_salary_sum(10) AS total_salary FROM dual;
+
+TOTAL_SALARY
+------------
+      180000
+
+SQL> SELECT get_salary_sum(30) AS total_salary FROM dual;
+
+TOTAL_SALARY
+------------
+      130000
+
+SQL>
+SQL> CREATE OR REPLACE FUNCTION get_first_odd
+  2  return number as v_first number:=0;
+  3  BEGIN
+  4  for i in 1..10 loop
+  5  v_first :=v_first+i;
+  6  end loop;
+  7  return v_first;
+  8  end;
+  9  /
+
+Function created.
+
+SQL>    select get_first_odd from dual;
+
+GET_FIRST_ODD
+-------------
+           55
+
+SQL> CREATE OR REPLACE FUNCTION get_first_odd
+  2  return number as  v_first NUMBER := 0;
+  3      v_num NUMBER := 1;
+  4      v_count NUMBER := 0;
+  5  BEGIN
+  6  WHILE v_count < 10 LOOP
+  7          v_first := v_first + v_first;
+  8          v_num := v_num + 2;
+  9          v_count := v_count + 1;
+ 10  end loop;
+ 11  return v_first;
+ 12  end;
+ 13  /
+
+Function created.
+
+SQL>  select get_first_odd from dual;
+
+SUM_FIRST_10_ODD
+----------------
+             100
+
+
+SQL> CREATE OR REPLACE FUNCTION reverse_number (
+  2      p_number IN NUMBER
+  3  ) RETURN NUMBER
+  4  AS
+  5      v_reverse NUMBER := 0;
+  6      v_temp NUMBER := p_number;
+  7  BEGIN
+  8      WHILE v_temp > 0 LOOP
+  9          v_reverse := v_reverse * 10 + MOD(v_temp, 10);
+ 10          v_temp := FLOOR(v_temp / 10);
+ 11      END LOOP;
+ 12
+ 13      RETURN v_reverse;
+ 14  END;
+ 15  /
+
+Function created.
+
+SQL> SELECT reverse_number(&a) AS reversed FROM dual;
+Enter value for a: 3458932
+old   1: SELECT reverse_number(&a) AS reversed FROM dual
+new   1: SELECT reverse_number(3458932) AS reversed FROM dual
+
+  REVERSED
+----------
+   2398543
+
+SQL>
