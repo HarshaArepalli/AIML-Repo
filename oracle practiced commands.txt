@@ -1,0 +1,1240 @@
+select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+
+SQL> INSERT INTO gym (memberid,firstname,lastname,gender,feedetails,email,phonenumber) values ('2','Rohith','H','Male','50000','rohith@gmail.com','2409813454');
+
+1 row created.
+
+SQL> INSERT INTO gym (memberid,firstname,lastname,gender,feedetails,email,phonenumber) values ('3','Harsha','y','Male','30000','harsha@gmail.com','2403813454');
+
+1 row created.
+
+SQL> INSERT INTO gym (memberid,firstname,lastname,gender,feedetails,email,phonenumber) values ('4','jash','k','Male','70000','jashwanth@gmail.com','2403323454');
+
+1 row created.
+
+SQL> INSERT INTO gym (memberid,firstname,lastname,gender,feedetails,email,phonenumber) values ('5','nithin','k','Male','90000','nithin@gmail.com','2403323765');
+
+1 row created.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               H                    Male            50000
+rohith@gmail.com      2409813454
+
+         3 Harsha               y                    Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 k                    Male            70000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            90000
+nithin@gmail.com      2403323765
+
+
+SQL> commit;
+
+Commit complete.
+SQL> commit;
+
+Commit complete.
+
+SQL>  set autocommit off
+SQL> INSERT INTO gym (memberid,firstname,lastname,gender,feedetails,email,phonenumber) values ('6','nithin','k','Male','90000','nithin@gmail.com','2403323765');
+
+1 row created.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               H                    Male            50000
+rohith@gmail.com      2409813454
+
+         3 Harsha               y                    Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 k                    Male            70000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            90000
+nithin@gmail.com      2403323765
+
+         6 nithin               k                    Male            90000
+nithin@gmail.com      2403323765
+
+
+6 rows selected.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               H                    Male            50000
+rohith@gmail.com      2409813454
+
+         3 Harsha               y                    Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 k                    Male            70000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            90000
+nithin@gmail.com      2403323765
+
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               H                    Male            50000
+rohith@gmail.com      2409813454
+
+         3 Harsha               y                    Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 k                    Male            70000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            90000
+nithin@gmail.com      2403323765
+
+
+SQL> commit;
+
+Commit complete.
+SQL> update gym set feedetails=30000 where memberid=3;
+
+1 row updated.
+
+SQL> update gym set feedetails=40000 where memberid=4;
+
+1 row updated.
+
+SQL> update gym set feedetails=50000 where memberid=5;
+
+1 row updated.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               H                    Male            20000
+rohith@gmail.com      2409813454
+
+         3 Harsha               y                    Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 k                    Male            40000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            50000
+nithin@gmail.com      2403323765
+
+
+SQL>SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               H                    Male            50000
+rohith@gmail.com      2409813454
+
+         3 Harsha               y                    Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 k                    Male            70000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            90000
+nithin@gmail.com      2403323765
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               H                    Male            20000
+rohith@gmail.com      2409813454
+
+         3 Harsha               y                    Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 k                    Male            40000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            50000
+nithin@gmail.com      2403323765
+
+
+SQL>SQL>  update gym set lastname='varma',feedetails='25000' where memberid=2;
+
+1 row updated.
+
+SQL>  update gym set lastname='yadav',feedetails='30000' where memberid=3;
+
+1 row updated.
+
+SQL>  update gym set lastname='kumar',feedetails='30000' where memberid=4;
+
+1 row updated.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               varma                Male            25000
+rohith@gmail.com      2409813454
+
+         3 Harsha               yadav                Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 kumar                Male            30000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            50000
+nithin@gmail.com      2403323765
+
+
+SQL>SQL> delete from gym;
+
+5 rows deleted.
+
+SQL> select * from gym;
+
+no rows selected
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from gym;
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         1 prince               H                    Male            10000
+prince@gmail.com      2409913454
+
+         2 Rohith               varma                Male            25000
+rohith@gmail.com      2409813454
+
+         3 Harsha               yadav                Male            30000
+harsha@gmail.com      2403813454
+
+
+  MEMBERID FIRSTNAME            LASTNAME             GENDER     FEEDETAILS
+---------- -------------------- -------------------- ---------- ----------
+EMAIL                PHONENUMBER
+-------------------- -----------
+         4 jash                 kumar                Male            30000
+jashwanth@gmail.com   2403323454
+
+         5 nithin               k                    Male            50000
+nithin@gmail.com      2403323765
+
+
+SQL>
+SQL> select sum(salary) from employees;
+
+SUM(SALARY)
+-----------
+     691416
+
+SQL> select max(email) from employees;
+
+MAX(EMAIL)
+-------------------------
+WTAYLOR
+
+SQL>SQL> select count(salary) as total,sum(salary) from employees;
+
+     TOTAL SUM(SALARY)
+---------- -----------
+       107      691416
+
+SQL> select count(salary) as total,sum(salary),avg(salary),min(salary) from employees;
+
+     TOTAL SUM(SALARY) AVG(SALARY) MIN(SALARY)
+---------- ----------- ----------- -----------
+       107      691416  6461.83178        2100
+
+SQL>SQL> select department_id,max(salary) as total_salary from employees group by department_id;
+
+DEPARTMENT_ID TOTAL_SALARY
+------------- ------------
+          100        12008
+           30        11000
+                      7000
+           90        24000
+           20        13000
+           70        10000
+          110        12008
+           50         8200
+           80        14000
+           40         6500
+           60         9000
+
+DEPARTMENT_ID TOTAL_SALARY
+------------- ------------
+           10         4400
+
+12 rows selected.
+
+SQL>
+SQL> select email,length(email) from employees;
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+ABANDA                                6
+ABULL                                 5
+ACABRIO                               7
+AERRAZUR                              8
+AFRIPP                                6
+AHUNOLD                               7
+AHUTTON                               7
+AKHOO                                 5
+AMCEWEN                               7
+AWALSH                                6
+BERNST                                6
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+BEVERETT                              8
+CDAVIES                               7
+CJOHNSON                              8
+COLSEN                                6
+CVISHNEY                              8
+DAUSTIN                               7
+DBERNSTE                              8
+DFAVIET                               7
+DGRANT                                6
+DGREENE                               7
+DLEE                                  4
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+DLORENTZ                              8
+DOCONNEL                              8
+DRAPHEAL                              8
+EABEL                                 5
+EBATES                                6
+EZLOTKEY                              8
+GCAMBRAU                              8
+GGEONI                                6
+GHIMURO                               7
+HBAER                                 5
+HBLOOM                                6
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+HPHILTAN                              8
+IMIKKILI                              8
+ISCIARRA                              8
+JAMRLOW                               7
+JCHEN                                 5
+JDELLING                              8
+JDILLY                                6
+JFLEAUR                               7
+JKING                                 5
+JLANDRY                               7
+JLIVINGS                              8
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+JMALLIN                               7
+JMURMAN                               7
+JNAYER                                6
+JPATEL                                6
+JRUSSEL                               7
+JSEO                                  4
+JTAYLOR                               7
+JWHALEN                               7
+KCHUNG                                6
+KCOLMENA                              8
+KFEENEY                               7
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+KGEE                                  4
+KGRANT                                6
+KMOURGOS                              8
+KPARTNER                              8
+LBISSOT                               7
+LDEHAAN                               7
+LDORAN                                6
+LOZER                                 5
+LPOPP                                 5
+LSMITH                                6
+MATKINSO                              8
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+MHARTSTE                              8
+MMARVINS                              8
+MROGERS                               7
+MSULLIVA                              8
+MWEISS                                6
+NCAMBRAU                              8
+NGREENBE                              8
+NKOCHHAR                              8
+NSARCHAN                              8
+OTUVAULT                              8
+PFAY                                  4
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+PHALL                                 5
+PKAUFLIN                              8
+PSULLY                                6
+PTUCKER                               7
+PVARGAS                               7
+RLADWIG                               7
+RMATOS                                6
+RPERKINS                              8
+SANDE                                 5
+SBAIDA                                6
+SBELL                                 5
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+SHIGGINS                              8
+SKING                                 5
+SKUMAR                                6
+SMARKLE                               7
+SMAVRIS                               7
+SMCCAIN                               7
+SSEWALL                               7
+SSTILES                               7
+STOBIAS                               7
+SVOLLMAN                              8
+TFOX                                  4
+
+EMAIL                     LENGTH(EMAIL)
+------------------------- -------------
+TGATES                                6
+TJOLSON                               7
+TRAJS                                 5
+VJONES                                6
+VPATABAL                              8
+WGIETZ                                6
+WSMITH                                6
+WTAYLOR                               7
+
+107 rows selected.
+
+SQL> select email,ltrim(email) from employees;
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+ABANDA                    ABANDA
+ABULL                     ABULL
+ACABRIO                   ACABRIO
+AERRAZUR                  AERRAZUR
+AFRIPP                    AFRIPP
+AHUNOLD                   AHUNOLD
+AHUTTON                   AHUTTON
+AKHOO                     AKHOO
+AMCEWEN                   AMCEWEN
+AWALSH                    AWALSH
+BERNST                    BERNST
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+BEVERETT                  BEVERETT
+CDAVIES                   CDAVIES
+CJOHNSON                  CJOHNSON
+COLSEN                    COLSEN
+CVISHNEY                  CVISHNEY
+DAUSTIN                   DAUSTIN
+DBERNSTE                  DBERNSTE
+DFAVIET                   DFAVIET
+DGRANT                    DGRANT
+DGREENE                   DGREENE
+DLEE                      DLEE
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+DLORENTZ                  DLORENTZ
+DOCONNEL                  DOCONNEL
+DRAPHEAL                  DRAPHEAL
+EABEL                     EABEL
+EBATES                    EBATES
+EZLOTKEY                  EZLOTKEY
+GCAMBRAU                  GCAMBRAU
+GGEONI                    GGEONI
+GHIMURO                   GHIMURO
+HBAER                     HBAER
+HBLOOM                    HBLOOM
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+HPHILTAN                  HPHILTAN
+IMIKKILI                  IMIKKILI
+ISCIARRA                  ISCIARRA
+JAMRLOW                   JAMRLOW
+JCHEN                     JCHEN
+JDELLING                  JDELLING
+JDILLY                    JDILLY
+JFLEAUR                   JFLEAUR
+JKING                     JKING
+JLANDRY                   JLANDRY
+JLIVINGS                  JLIVINGS
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+JMALLIN                   JMALLIN
+JMURMAN                   JMURMAN
+JNAYER                    JNAYER
+JPATEL                    JPATEL
+JRUSSEL                   JRUSSEL
+JSEO                      JSEO
+JTAYLOR                   JTAYLOR
+JWHALEN                   JWHALEN
+KCHUNG                    KCHUNG
+KCOLMENA                  KCOLMENA
+KFEENEY                   KFEENEY
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+KGEE                      KGEE
+KGRANT                    KGRANT
+KMOURGOS                  KMOURGOS
+KPARTNER                  KPARTNER
+LBISSOT                   LBISSOT
+LDEHAAN                   LDEHAAN
+LDORAN                    LDORAN
+LOZER                     LOZER
+LPOPP                     LPOPP
+LSMITH                    LSMITH
+MATKINSO                  MATKINSO
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+MHARTSTE                  MHARTSTE
+MMARVINS                  MMARVINS
+MROGERS                   MROGERS
+MSULLIVA                  MSULLIVA
+MWEISS                    MWEISS
+NCAMBRAU                  NCAMBRAU
+NGREENBE                  NGREENBE
+NKOCHHAR                  NKOCHHAR
+NSARCHAN                  NSARCHAN
+OTUVAULT                  OTUVAULT
+PFAY                      PFAY
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+PHALL                     PHALL
+PKAUFLIN                  PKAUFLIN
+PSULLY                    PSULLY
+PTUCKER                   PTUCKER
+PVARGAS                   PVARGAS
+RLADWIG                   RLADWIG
+RMATOS                    RMATOS
+RPERKINS                  RPERKINS
+SANDE                     SANDE
+SBAIDA                    SBAIDA
+SBELL                     SBELL
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+SHIGGINS                  SHIGGINS
+SKING                     SKING
+SKUMAR                    SKUMAR
+SMARKLE                   SMARKLE
+SMAVRIS                   SMAVRIS
+SMCCAIN                   SMCCAIN
+SSEWALL                   SSEWALL
+SSTILES                   SSTILES
+STOBIAS                   STOBIAS
+SVOLLMAN                  SVOLLMAN
+TFOX                      TFOX
+
+EMAIL                     LTRIM(EMAIL)
+------------------------- -------------------------
+TGATES                    TGATES
+TJOLSON                   TJOLSON
+TRAJS                     TRAJS
+VJONES                    VJONES
+VPATABAL                  VPATABAL
+WGIETZ                    WGIETZ
+WSMITH                    WSMITH
+WTAYLOR                   WTAYLOR
+
+107 rows selected.
+
+SQL> select email,rtrim(email) from employees;
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+ABANDA                    ABANDA
+ABULL                     ABULL
+ACABRIO                   ACABRIO
+AERRAZUR                  AERRAZUR
+AFRIPP                    AFRIPP
+AHUNOLD                   AHUNOLD
+AHUTTON                   AHUTTON
+AKHOO                     AKHOO
+AMCEWEN                   AMCEWEN
+AWALSH                    AWALSH
+BERNST                    BERNST
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+BEVERETT                  BEVERETT
+CDAVIES                   CDAVIES
+CJOHNSON                  CJOHNSON
+COLSEN                    COLSEN
+CVISHNEY                  CVISHNEY
+DAUSTIN                   DAUSTIN
+DBERNSTE                  DBERNSTE
+DFAVIET                   DFAVIET
+DGRANT                    DGRANT
+DGREENE                   DGREENE
+DLEE                      DLEE
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+DLORENTZ                  DLORENTZ
+DOCONNEL                  DOCONNEL
+DRAPHEAL                  DRAPHEAL
+EABEL                     EABEL
+EBATES                    EBATES
+EZLOTKEY                  EZLOTKEY
+GCAMBRAU                  GCAMBRAU
+GGEONI                    GGEONI
+GHIMURO                   GHIMURO
+HBAER                     HBAER
+HBLOOM                    HBLOOM
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+HPHILTAN                  HPHILTAN
+IMIKKILI                  IMIKKILI
+ISCIARRA                  ISCIARRA
+JAMRLOW                   JAMRLOW
+JCHEN                     JCHEN
+JDELLING                  JDELLING
+JDILLY                    JDILLY
+JFLEAUR                   JFLEAUR
+JKING                     JKING
+JLANDRY                   JLANDRY
+JLIVINGS                  JLIVINGS
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+JMALLIN                   JMALLIN
+JMURMAN                   JMURMAN
+JNAYER                    JNAYER
+JPATEL                    JPATEL
+JRUSSEL                   JRUSSEL
+JSEO                      JSEO
+JTAYLOR                   JTAYLOR
+JWHALEN                   JWHALEN
+KCHUNG                    KCHUNG
+KCOLMENA                  KCOLMENA
+KFEENEY                   KFEENEY
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+KGEE                      KGEE
+KGRANT                    KGRANT
+KMOURGOS                  KMOURGOS
+KPARTNER                  KPARTNER
+LBISSOT                   LBISSOT
+LDEHAAN                   LDEHAAN
+LDORAN                    LDORAN
+LOZER                     LOZER
+LPOPP                     LPOPP
+LSMITH                    LSMITH
+MATKINSO                  MATKINSO
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+MHARTSTE                  MHARTSTE
+MMARVINS                  MMARVINS
+MROGERS                   MROGERS
+MSULLIVA                  MSULLIVA
+MWEISS                    MWEISS
+NCAMBRAU                  NCAMBRAU
+NGREENBE                  NGREENBE
+NKOCHHAR                  NKOCHHAR
+NSARCHAN                  NSARCHAN
+OTUVAULT                  OTUVAULT
+PFAY                      PFAY
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+PHALL                     PHALL
+PKAUFLIN                  PKAUFLIN
+PSULLY                    PSULLY
+PTUCKER                   PTUCKER
+PVARGAS                   PVARGAS
+RLADWIG                   RLADWIG
+RMATOS                    RMATOS
+RPERKINS                  RPERKINS
+SANDE                     SANDE
+SBAIDA                    SBAIDA
+SBELL                     SBELL
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+SHIGGINS                  SHIGGINS
+SKING                     SKING
+SKUMAR                    SKUMAR
+SMARKLE                   SMARKLE
+SMAVRIS                   SMAVRIS
+SMCCAIN                   SMCCAIN
+SSEWALL                   SSEWALL
+SSTILES                   SSTILES
+STOBIAS                   STOBIAS
+SVOLLMAN                  SVOLLMAN
+TFOX                      TFOX
+
+EMAIL                     RTRIM(EMAIL)
+------------------------- -------------------------
+TGATES                    TGATES
+TJOLSON                   TJOLSON
+TRAJS                     TRAJS
+VJONES                    VJONES
+VPATABAL                  VPATABAL
+WGIETZ                    WGIETZ
+WSMITH                    WSMITH
+WTAYLOR                   WTAYLOR
+
+107 rows selected.
+
+SQL> select email,trim(email) from employees;
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+ABANDA                    ABANDA
+ABULL                     ABULL
+ACABRIO                   ACABRIO
+AERRAZUR                  AERRAZUR
+AFRIPP                    AFRIPP
+AHUNOLD                   AHUNOLD
+AHUTTON                   AHUTTON
+AKHOO                     AKHOO
+AMCEWEN                   AMCEWEN
+AWALSH                    AWALSH
+BERNST                    BERNST
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+BEVERETT                  BEVERETT
+CDAVIES                   CDAVIES
+CJOHNSON                  CJOHNSON
+COLSEN                    COLSEN
+CVISHNEY                  CVISHNEY
+DAUSTIN                   DAUSTIN
+DBERNSTE                  DBERNSTE
+DFAVIET                   DFAVIET
+DGRANT                    DGRANT
+DGREENE                   DGREENE
+DLEE                      DLEE
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+DLORENTZ                  DLORENTZ
+DOCONNEL                  DOCONNEL
+DRAPHEAL                  DRAPHEAL
+EABEL                     EABEL
+EBATES                    EBATES
+EZLOTKEY                  EZLOTKEY
+GCAMBRAU                  GCAMBRAU
+GGEONI                    GGEONI
+GHIMURO                   GHIMURO
+HBAER                     HBAER
+HBLOOM                    HBLOOM
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+HPHILTAN                  HPHILTAN
+IMIKKILI                  IMIKKILI
+ISCIARRA                  ISCIARRA
+JAMRLOW                   JAMRLOW
+JCHEN                     JCHEN
+JDELLING                  JDELLING
+JDILLY                    JDILLY
+JFLEAUR                   JFLEAUR
+JKING                     JKING
+JLANDRY                   JLANDRY
+JLIVINGS                  JLIVINGS
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+JMALLIN                   JMALLIN
+JMURMAN                   JMURMAN
+JNAYER                    JNAYER
+JPATEL                    JPATEL
+JRUSSEL                   JRUSSEL
+JSEO                      JSEO
+JTAYLOR                   JTAYLOR
+JWHALEN                   JWHALEN
+KCHUNG                    KCHUNG
+KCOLMENA                  KCOLMENA
+KFEENEY                   KFEENEY
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+KGEE                      KGEE
+KGRANT                    KGRANT
+KMOURGOS                  KMOURGOS
+KPARTNER                  KPARTNER
+LBISSOT                   LBISSOT
+LDEHAAN                   LDEHAAN
+LDORAN                    LDORAN
+LOZER                     LOZER
+LPOPP                     LPOPP
+LSMITH                    LSMITH
+MATKINSO                  MATKINSO
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+MHARTSTE                  MHARTSTE
+MMARVINS                  MMARVINS
+MROGERS                   MROGERS
+MSULLIVA                  MSULLIVA
+MWEISS                    MWEISS
+NCAMBRAU                  NCAMBRAU
+NGREENBE                  NGREENBE
+NKOCHHAR                  NKOCHHAR
+NSARCHAN                  NSARCHAN
+OTUVAULT                  OTUVAULT
+PFAY                      PFAY
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+PHALL                     PHALL
+PKAUFLIN                  PKAUFLIN
+PSULLY                    PSULLY
+PTUCKER                   PTUCKER
+PVARGAS                   PVARGAS
+RLADWIG                   RLADWIG
+RMATOS                    RMATOS
+RPERKINS                  RPERKINS
+SANDE                     SANDE
+SBAIDA                    SBAIDA
+SBELL                     SBELL
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+SHIGGINS                  SHIGGINS
+SKING                     SKING
+SKUMAR                    SKUMAR
+SMARKLE                   SMARKLE
+SMAVRIS                   SMAVRIS
+SMCCAIN                   SMCCAIN
+SSEWALL                   SSEWALL
+SSTILES                   SSTILES
+STOBIAS                   STOBIAS
+SVOLLMAN                  SVOLLMAN
+TFOX                      TFOX
+
+EMAIL                     TRIM(EMAIL)
+------------------------- -------------------------
+TGATES                    TGATES
+TJOLSON                   TJOLSON
+TRAJS                     TRAJS
+VJONES                    VJONES
+VPATABAL                  VPATABAL
+WGIETZ                    WGIETZ
+WSMITH                    WSMITH
+WTAYLOR                   WTAYLOR
+
+107 rows selected.
+
+SQL> select job,trim(email) from employees;
+select job,trim(email) from employees
+       *
+ERROR at line 1:
+ORA-00904: "JOB": invalid identifier
+
+
+SQL> select job_id,trim(job_id) from employees;
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+AC_ACCOUNT AC_ACCOUNT
+AC_MGR     AC_MGR
+AD_ASST    AD_ASST
+AD_PRES    AD_PRES
+AD_VP      AD_VP
+AD_VP      AD_VP
+FI_ACCOUNT FI_ACCOUNT
+FI_ACCOUNT FI_ACCOUNT
+FI_ACCOUNT FI_ACCOUNT
+FI_ACCOUNT FI_ACCOUNT
+FI_ACCOUNT FI_ACCOUNT
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+FI_MGR     FI_MGR
+HR_REP     HR_REP
+IT_PROG    IT_PROG
+IT_PROG    IT_PROG
+IT_PROG    IT_PROG
+IT_PROG    IT_PROG
+IT_PROG    IT_PROG
+MK_MAN     MK_MAN
+MK_REP     MK_REP
+PR_REP     PR_REP
+PU_CLERK   PU_CLERK
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+PU_CLERK   PU_CLERK
+PU_CLERK   PU_CLERK
+PU_CLERK   PU_CLERK
+PU_CLERK   PU_CLERK
+PU_MAN     PU_MAN
+SA_MAN     SA_MAN
+SA_MAN     SA_MAN
+SA_MAN     SA_MAN
+SA_MAN     SA_MAN
+SA_MAN     SA_MAN
+SA_REP     SA_REP
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SA_REP     SA_REP
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+SH_CLERK   SH_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+
+JOB_ID     TRIM(JOB_I
+---------- ----------
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_CLERK   ST_CLERK
+ST_MAN     ST_MAN
+ST_MAN     ST_MAN
+ST_MAN     ST_MAN
+ST_MAN     ST_MAN
+ST_MAN     ST_MAN
+
+107 rows selected.
+
+SQL> select salary,trim(job_id) from employees;
+
+    SALARY TRIM(JOB_I
+---------- ----------
+     24000 AD_PRES
+     17000 AD_VP
+     17000 AD_VP
+      9000 IT_PROG
+      6000 IT_PROG
+      4800 IT_PROG
+      4800 IT_PROG
+      4200 IT_PROG
+     12008 FI_MGR
+      9000 FI_ACCOUNT
+      8200 FI_ACCOUNT
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      7700 FI_ACCOUNT
+      7800 FI_ACCOUNT
+      6900 FI_ACCOUNT
+     11000 PU_MAN
+      3100 PU_CLERK
+      2900 PU_CLERK
+      2800 PU_CLERK
+      2600 PU_CLERK
+      2500 PU_CLERK
+      8000 ST_MAN
+      8200 ST_MAN
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      7900 ST_MAN
+      6500 ST_MAN
+      5800 ST_MAN
+      3200 ST_CLERK
+      2700 ST_CLERK
+      2400 ST_CLERK
+      2200 ST_CLERK
+      3300 ST_CLERK
+      2800 ST_CLERK
+      2500 ST_CLERK
+      2100 ST_CLERK
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      3300 ST_CLERK
+      2900 ST_CLERK
+      2400 ST_CLERK
+      2200 ST_CLERK
+      3600 ST_CLERK
+      3200 ST_CLERK
+      2700 ST_CLERK
+      2500 ST_CLERK
+      3500 ST_CLERK
+      3100 ST_CLERK
+      2600 ST_CLERK
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      2500 ST_CLERK
+     14000 SA_MAN
+     13500 SA_MAN
+     12000 SA_MAN
+     11000 SA_MAN
+     10500 SA_MAN
+     10000 SA_REP
+      9500 SA_REP
+      9000 SA_REP
+      8000 SA_REP
+      7500 SA_REP
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      7000 SA_REP
+     10000 SA_REP
+      9500 SA_REP
+      9000 SA_REP
+      8000 SA_REP
+      7500 SA_REP
+      7000 SA_REP
+     10500 SA_REP
+      9500 SA_REP
+      7200 SA_REP
+      6800 SA_REP
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      6400 SA_REP
+      6200 SA_REP
+     11500 SA_REP
+     10000 SA_REP
+      9600 SA_REP
+      7400 SA_REP
+      7300 SA_REP
+      6100 SA_REP
+     11000 SA_REP
+      8800 SA_REP
+      8600 SA_REP
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      8400 SA_REP
+      7000 SA_REP
+      6200 SA_REP
+      3200 SH_CLERK
+      3100 SH_CLERK
+      2500 SH_CLERK
+      2800 SH_CLERK
+      4200 SH_CLERK
+      4100 SH_CLERK
+      3400 SH_CLERK
+      3000 SH_CLERK
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      3800 SH_CLERK
+      3600 SH_CLERK
+      2900 SH_CLERK
+      2500 SH_CLERK
+      4000 SH_CLERK
+      3900 SH_CLERK
+      3200 SH_CLERK
+      2800 SH_CLERK
+      3100 SH_CLERK
+      3000 SH_CLERK
+      2600 SH_CLERK
+
+    SALARY TRIM(JOB_I
+---------- ----------
+      2600 SH_CLERK
+      4400 AD_ASST
+     13000 MK_MAN
+      6000 MK_REP
+      6500 HR_REP
+     10000 PR_REP
+     12008 AC_MGR
+      8300 AC_ACCOUNT
+
+107 rows selected.
+reversed    NUMBER := 0;
